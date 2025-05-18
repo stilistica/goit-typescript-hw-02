@@ -1,5 +1,5 @@
 import s from "./ImageGallery.module.css";
-import ImageCard from "../imageCard/ImageCard.jsx";
+import ImageCard from "../imageCard/ImageCard"
 
 function ImageGallery({ gallery, openModal }) {
   return (
