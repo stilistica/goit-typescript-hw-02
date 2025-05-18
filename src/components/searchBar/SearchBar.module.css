@@ -1,0 +1,26 @@
+.header {
+  background-color: blueviolet;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  gap: 10px;
+}
+.form input {
+  height: 25px;
+  border-radius: 5px;
+}
+.form button {
+  /*box-sizing: border-box;*/
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 80px;
+}
+.form button:hover {
+  border: 2px solid black;
+}
