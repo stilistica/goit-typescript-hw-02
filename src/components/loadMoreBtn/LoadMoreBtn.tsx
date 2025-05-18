@@ -1,6 +1,10 @@
 import s from "./LoadMoreBtn.module.css";
 
-function LoadMoreBtn({ onClickLoadMore }) {
+interface LoadMoreBtnProps {
+    onClickLoadMore: () => void;
+}
+
+function LoadMoreBtn({ onClickLoadMore }: LoadMoreBtnProps) {
   return (
     <button onClick={onClickLoadMore} className={s.btn}>
       Load More

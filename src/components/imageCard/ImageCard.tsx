@@ -1,6 +1,11 @@
 import s from "./ImageCard.module.css";
+import {GalleryItem} from "../App/App";
 
-function ImageCard({ image, openModal }) {
+interface ImageCardProps {
+    image: GalleryItem;
+    openModal: (selectedUrl:string) => void;
+}
+function ImageCard({ image, openModal }: ImageCardProps) {
   return (
     <div className={s.card}>
       <img

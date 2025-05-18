@@ -1,18 +1,24 @@
 import s from "./SearchBar.module.css";
 import toast from "react-hot-toast";
 import { MdImageSearch } from "react-icons/md";
+import React, {FormEvent} from "react";
 
-function SearchBar({ handleChangeQuery }) {
-  const handleSubmit = (evt) => {
+interface SearchBarProps {
+  handleChangeQuery: (newQuery: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ handleChangeQuery })=> {
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    const newQuery = evt.target.elements.query.value;
+    const input = evt.currentTarget.elements.namedItem("query") as HTMLInputElement;
+    const newQuery: string = input.value;
     if (newQuery.trim() === "") {
       toast.error("Необхідно ввести текст для пошуку зображень");
-      evt.target.reset();
+      evt.currentTarget.reset();
       return;
     }
     handleChangeQuery(newQuery);
-    evt.target.reset();
+    evt.currentTarget.reset();
   };
   return (
     <header className={s.header}>

@@ -1,7 +1,12 @@
 import s from "./ImageGallery.module.css";
 import ImageCard from "../imageCard/ImageCard"
+import {GalleryItem} from "../App/App";
 
-function ImageGallery({ gallery, openModal }) {
+interface ImageGalleryProps {
+  gallery: GalleryItem[];
+  openModal: (selectedUrl: string) => void;
+}
+function ImageGallery({ gallery, openModal }: ImageGalleryProps) {
   return (
     <ul className={s.galleryList}>
       {gallery.map((image) => (

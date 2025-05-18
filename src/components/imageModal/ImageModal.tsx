@@ -1,8 +1,15 @@
 import s from "./ImageModal.module.css";
-import Modal from "react-modal";
+import Modal, {Styles} from "react-modal";
+import React, {MouseEvent} from "react";
 
-function ImageModal({ isModalOpen, closeModal, regularImage }) {
-  const customStyles = {
+interface ImageModalProps {
+  isModalOpen: boolean;
+  closeModal: () => void;
+  regularImage: string;
+}
+
+function ImageModal({ isModalOpen, closeModal, regularImage }: ImageModalProps) {
+  const customStyles: Styles = {
     overlay: {
       position: "fixed",
       top: 0,
@@ -30,7 +37,7 @@ function ImageModal({ isModalOpen, closeModal, regularImage }) {
 
   Modal.setAppElement("#root");
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
